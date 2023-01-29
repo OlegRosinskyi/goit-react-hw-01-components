@@ -11,7 +11,7 @@ const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser,
     />
     <p class="name">{nameUser}</p>
     <p class="tag">{tagUser}</p>
-    <p class="location">Salvador, Brasil{locationUser}</p>
+    <p class="location">{locationUser}</p>
   </div>
 
   <ul class="stats">
