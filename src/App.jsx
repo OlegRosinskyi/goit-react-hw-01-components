@@ -15,7 +15,7 @@ import { StatisticsTitle } from 'App.styled';
 import { ThTabletHead } from 'App.styled';
 import { FriendListUl } from 'App.styled';
 const App = () => {
- console.log({friends})
+ //console.log({friends})
   return (
     <Container>
      <Profile
@@ -50,7 +50,7 @@ const App = () => {
       </tr>
       </thead>
         <tbody>
-          {transactions.map(transaction => <TransactionHistory key={transaction.id} transactionString={transaction} />)}
+          {transactions.map((transaction, index) => <TransactionHistory key={transaction.id} index={index} transactionString={transaction} />)}
         </tbody>
         </TransactionHistoryTable>
          </Container>
