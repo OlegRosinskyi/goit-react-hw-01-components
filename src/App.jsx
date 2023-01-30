@@ -10,8 +10,10 @@ import TransactionHistory from './components/Transactions';
 import { Container}  from 'App.styled';
 import { StatList } from 'App.styled';
 import { StatisticsAll } from 'App.styled';
-import { TransactionHistoryAll } from 'components/Transactions.styled';
+import { TransactionHistoryTable } from 'components/Transactions.styled';
 import { StatisticsTitle } from 'App.styled';
+import { ThTabletHead } from 'App.styled';
+import { FriendListUl } from 'App.styled';
 const App = () => {
  console.log({friends})
   return (
@@ -34,23 +36,23 @@ const App = () => {
         </StatList>
         </StatisticsAll>
        <section className="friends">
-      <ul className="friend-list">
+      <FriendListUl>
         {friends.map(friend => <FriendList key={friend.id} friendList={friend} />)}
-      </ul>
+      </FriendListUl>
       </section> 
-      <TransactionHistoryAll>
+      <TransactionHistoryTable>
         
       <thead>
       <tr>
-        <th>Type</th>
-        <th>Amount</th>
-        <th>Currency</th>
+        <ThTabletHead>Type</ThTabletHead>
+        <ThTabletHead>Amount</ThTabletHead>
+        <ThTabletHead>Currency</ThTabletHead>
       </tr>
       </thead>
         <tbody>
           {transactions.map(transaction => <TransactionHistory key={transaction.id} transactionString={transaction} />)}
         </tbody>
-        </TransactionHistoryAll>
+        </TransactionHistoryTable>
          </Container>
       );
 };

@@ -13,4 +13,4 @@ export const StatusFriend = styled.span
                 }
             }
             }`
-export const  ItemFriend = styled.li` display: flex; justify-content:center; align-items:center;  background-color: white; margin-bottom: 10px; border-radius: 5px;`
+export const  ItemFriend = styled.li` display: flex; justify-content:center; align-items:center;  background-color: white; margin-bottom: 10px; border-radius: 5px; width: 240px;`
