@@ -10,6 +10,8 @@ import TransactionHistory from './components/Transactions';
 import { Container}  from 'App.styled';
 import { StatList } from 'App.styled';
 import { StatisticsAll } from 'App.styled';
+import { TransactionHistoryAll } from 'components/Transactions.styled';
+import { StatisticsTitle } from 'App.styled';
 const App = () => {
  console.log({friends})
   return (
@@ -26,7 +28,7 @@ const App = () => {
       
       />
             <StatisticsAll>
-        <h2 className="title">Upload stats</h2>
+        <StatisticsTitle  >Upload stats</StatisticsTitle >
         <StatList>
           {data.map(item=> <Statistics key={item.id} stats={item} />)}
         </StatList>
@@ -36,7 +38,7 @@ const App = () => {
         {friends.map(friend => <FriendList key={friend.id} friendList={friend} />)}
       </ul>
       </section> 
-      <table className="transaction-history">
+      <TransactionHistoryAll>
         
       <thead>
       <tr>
@@ -48,7 +50,7 @@ const App = () => {
         <tbody>
           {transactions.map(transaction => <TransactionHistory key={transaction.id} transactionString={transaction} />)}
         </tbody>
-        </table>
+        </TransactionHistoryAll>
          </Container>
       );
 };

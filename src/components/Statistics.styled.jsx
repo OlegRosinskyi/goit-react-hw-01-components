@@ -1,5 +1,6 @@
 import styled from "styled-components";
-export const StatisticsSingl = styled.li`display: flex; flex-direction:column; align-items:center; 
+export const StatisticsSingl = styled.li`display: flex; flex-direction:column; justify-content:center; align-items:center; color: white; width: 60px;
+      height: 60px;
 background-color: ${({ value }) => {
                
             switch (value) {

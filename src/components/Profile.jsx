@@ -3,12 +3,13 @@ import { ProfileUser } from './Profile.styled';
 import { Description } from './Profile.styled';
 import { Stats } from './Profile.styled';
 import { StatsSingl } from './Profile.styled';
+import { ProfileImg } from './Profile.styled';
 const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser, viewsStatsUser, likesStatsUser }) => {
     
     return (
     <ProfileUser>
   <Description>
-    <img
+    <ProfileImg
       src={urlUser}
       alt={tagUser}
       className="avatar"
