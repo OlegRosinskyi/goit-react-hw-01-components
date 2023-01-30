@@ -1,13 +1,23 @@
-const FriendList = ({friends:{friendStatus,friendImg,friendName,friendId }}) =>
+import PropTypes from 'prop-types';
+
+export const FriendList = ({ friendList: { avatar, name, isOnline  } }) =>
 {
     return (  
-        
-        <li class="item">
-            <span class="status">{friendStatus}</span>
-            <img class="avatar" src={friendImg} alt="User avatar" width="48" />
-            <p class="name">{friendName}</p>
+            <li className="item">
+            <span className="status">{isOnline}</span>
+            <img className="avatar" src={avatar} alt="User avatar" width="48" />
+            <p className="name">{name}</p>
             </li>
-        
        )
 }
-export default FriendList;
+//export default FriendList;
+
+FriendList.propTypes = {
+    friendList: PropTypes.exact({
+      id: PropTypes.number.isRequired, 
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    
+    }).isRequired,
+}

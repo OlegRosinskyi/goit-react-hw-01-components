@@ -1,33 +1,46 @@
-
+import PropTypes from 'prop-types';
+import { ProfileUser } from './Profile.styled';
+import { Description } from './Profile.styled';
+import { Stats } from './Profile.styled';
+import { StatsSingl } from './Profile.styled';
 const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser, viewsStatsUser, likesStatsUser }) => {
     
     return (
-    <div class="profile">
-  <div class="description">
+    <ProfileUser>
+  <Description>
     <img
       src={urlUser}
       alt={tagUser}
-      class="avatar"
+      className="avatar"
     />
-    <p class="name">{nameUser}</p>
-    <p class="tag">{tagUser}</p>
-    <p class="location">{locationUser}</p>
-  </div>
+    <p className="name">{nameUser}</p>
+    <p className="tag">{tagUser}</p>
+    <p className="location">{locationUser}</p>
+  </Description>
 
-  <ul class="stats">
-    <li>
-      <span class="label">Followers</span>
-      <span class="quantity">{followersStatsUser}</span>
-    </li>
-    <li>
-      <span class="label">Views</span>
-      <span class="quantity">{viewsStatsUser}</span>
-    </li>
-    <li>
-      <span class="label">Likes</span>
-      <span class="quantity">{likesStatsUser}</span>
-    </li>
-  </ul>
-    </div >)
+  <Stats>
+    <StatsSingl>
+      <span className="label">Followers</span>
+      <span className="quantity">{followersStatsUser}</span>
+    </StatsSingl>
+    <StatsSingl>
+      <span className="label">Views</span>
+      <span className="quantity">{viewsStatsUser}</span>
+    </StatsSingl>
+    <StatsSingl>
+      <span className="label">Likes</span>
+      <span className="quantity">{likesStatsUser}</span>
+    </StatsSingl>
+  </Stats>
+    </ProfileUser >)
 } 
 export default Profile;
+Profile.propTypes = {
+    urlUser: PropTypes.string.isRequired,
+    tagUser: PropTypes.string.isRequired,
+    nameUser: PropTypes.string.isRequired,
+    locationUser: PropTypes.string.isRequired,
+    followersStatsUser: PropTypes.number.isRequired,
+    viewsStatsUser: PropTypes.number.isRequired,  
+    likesStatsUser: PropTypes.number.isRequired,  
+}

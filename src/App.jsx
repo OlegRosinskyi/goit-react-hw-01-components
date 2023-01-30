@@ -1,18 +1,20 @@
 import profileData from './user.json';
-
 import Profile from './components/Profile';
 import data from './data.json';
 import Statistics from './components/Statistics';
 import friends from './friends.json';
-import FriendList from './components/FriendList';
+import{FriendList} from './components/FriendList';
 import transactions from './transactions.json';
 import TransactionHistory from './components/Transactions';
 
+import { Container}  from 'App.styled';
+import { StatList } from 'App.styled';
+import { StatisticsAll } from 'App.styled';
 const App = () => {
- 
+ console.log({friends})
   return (
-    <>
-      <Profile
+    <Container>
+     <Profile
       urlUser={profileData.avatar}
       tagUser={profileData.tag}
       nameUser={profileData.username}
@@ -20,20 +22,21 @@ const App = () => {
       followersStatsUser={profileData.stats.followers}
       viewsStatsUser={profileData.stats.views}
       likesStatsUser={profileData.stats.likes}
-      />
-     
-       <section class="statistics">
-        <h2 class="title">Upload stats</h2>
-        <ul class="stat-list">
-          {data.map(item=> <Statistics key={item.id} stats={item} />)}
-        </ul>
-        </section>
-        
-      <ul class="friend-list">
-        {friends.map(friend=><FriendList key={friend.id} friends={friend} />)}
-      </ul>
       
-      <table class="transaction-history">
+      
+      />
+            <StatisticsAll>
+        <h2 className="title">Upload stats</h2>
+        <StatList>
+          {data.map(item=> <Statistics key={item.id} stats={item} />)}
+        </StatList>
+        </StatisticsAll>
+       <section className="friends">
+      <ul className="friend-list">
+        {friends.map(friend => <FriendList key={friend.id} friendList={friend} />)}
+      </ul>
+      </section> 
+      <table className="transaction-history">
         
       <thead>
       <tr>
@@ -43,14 +46,10 @@ const App = () => {
       </tr>
       </thead>
         <tbody>
-          {transactions.map(transaction=><TransactionHistory key={transaction.id} transactionString={transaction} />)}
+          {transactions.map(transaction => <TransactionHistory key={transaction.id} transactionString={transaction} />)}
         </tbody>
-</table>
-         
-    </>
-    
-   
-    
+        </table>
+         </Container>
       );
 };
 export default App;
