@@ -4,6 +4,9 @@ import { Description } from './Profile.styled';
 import { Stats } from './Profile.styled';
 import { StatsSingl } from './Profile.styled';
 import { ProfileImg } from './Profile.styled';
+import { ProfileName } from './Profile.styled';
+import { ProfileTeg } from './Profile.styled';
+import { StatsQuantity } from './Profile.styled';
 const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser, viewsStatsUser, likesStatsUser }) => {
     
     return (
@@ -12,25 +15,26 @@ const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser,
     <ProfileImg
       src={urlUser}
       alt={tagUser}
-      className="avatar"
+            width={300}
+            
     />
-    <p className="name">{nameUser}</p>
-    <p className="tag">{tagUser}</p>
-    <p className="location">{locationUser}</p>
+    <ProfileName>{nameUser}</ProfileName>
+    <ProfileTeg>{tagUser}</ProfileTeg>
+    <ProfileTeg>{locationUser}</ProfileTeg>
   </Description>
 
   <Stats>
     <StatsSingl>
       <span className="label">Followers</span>
-      <span className="quantity">{followersStatsUser}</span>
+      <StatsQuantity>{followersStatsUser}</StatsQuantity>
     </StatsSingl>
     <StatsSingl>
       <span className="label">Views</span>
-      <span className="quantity">{viewsStatsUser}</span>
+      <StatsQuantity>{viewsStatsUser}</StatsQuantity>
     </StatsSingl>
     <StatsSingl>
       <span className="label">Likes</span>
-      <span className="quantity">{likesStatsUser}</span>
+      <StatsQuantity>{likesStatsUser}</StatsQuantity>
     </StatsSingl>
   </Stats>
     </ProfileUser >)

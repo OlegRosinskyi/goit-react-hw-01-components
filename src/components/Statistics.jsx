@@ -5,7 +5,7 @@ const Statistics = ({ stats: { id,label, percentage } }) =>
 {
     return (
      
-    <StatisticsSingl value={label}>
+    <StatisticsSingl title="Upload stats" value={label}>
             <span className="label">{label}</span>
       <span className="percentage">{percentage}%</span>
     </StatisticsSingl>
