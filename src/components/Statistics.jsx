@@ -1,22 +1,26 @@
 import PropTypes from 'prop-types';
 import { StatisticsSingl } from './Statistics.styled';
+import {StatisticsBox } from './Statistics.styled';
+import { StatisticsList } from './Statistics.styled';
+import { StatisticsTitle } from './Statistics.styled';
 
-const Statistics = ({ stats: { id,label, percentage } }) =>
+const Statistics = ({ title, stats}) =>
 {
-    return (
-     
-    <StatisticsSingl title="Upload stats" value={label}>
-            <span className="label">{label}</span>
-      <span className="percentage">{percentage}%</span>
-    </StatisticsSingl>
-     )
+  return (
+    <StatisticsBox>
+      {title === "Upload stats"&&<StatisticsTitle >{title}</StatisticsTitle >}
+        <StatisticsList>
+          {stats.map(item=>   <StatisticsSingl key={item.id} value={item.label}>
+            <span className="label">{item.label}</span>
+      <span className="percentage">{item.percentage}%</span>
+      </StatisticsSingl>  )}
+      </StatisticsList> 
+      </StatisticsBox>
+  )  
 }
 export default Statistics;
 
 Statistics.propTypes = {
-  stats: PropTypes.exact({
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired, 
-    }).isRequired,
+  title: PropTypes.string.isRequired,
+  stats:PropTypes.array.isRequired,
 }

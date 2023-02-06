@@ -7,34 +7,33 @@ import { ProfileImg } from './Profile.styled';
 import { ProfileName } from './Profile.styled';
 import { ProfileTeg } from './Profile.styled';
 import { StatsQuantity } from './Profile.styled';
-const Profile = ({ urlUser, tagUser, nameUser, locationUser, followersStatsUser, viewsStatsUser, likesStatsUser }) => {
+const Profile = ({ avatar, tag, user, location, stats }) => {
     
     return (
     <ProfileUser>
   <Description>
     <ProfileImg
-      src={urlUser}
-      alt={tagUser}
-            width={300}
-            
+      src={avatar}
+      alt={tag}
+      width={300}      
     />
-    <ProfileName>{nameUser}</ProfileName>
-    <ProfileTeg>{tagUser}</ProfileTeg>
-    <ProfileTeg>{locationUser}</ProfileTeg>
+    <ProfileName>{user}</ProfileName>
+    <ProfileTeg>{tag}</ProfileTeg>
+    <ProfileTeg>{location}</ProfileTeg>
   </Description>
 
   <Stats>
     <StatsSingl>
       <span className="label">Followers</span>
-      <StatsQuantity>{followersStatsUser}</StatsQuantity>
+      <StatsQuantity>{stats.followers}</StatsQuantity>
     </StatsSingl>
     <StatsSingl>
       <span className="label">Views</span>
-      <StatsQuantity>{viewsStatsUser}</StatsQuantity>
+      <StatsQuantity>{stats.views}</StatsQuantity>
     </StatsSingl>
     <StatsSingl>
       <span className="label">Likes</span>
-      <StatsQuantity>{likesStatsUser}</StatsQuantity>
+      <StatsQuantity>{stats.likes}</StatsQuantity>
     </StatsSingl>
   </Stats>
     </ProfileUser >)

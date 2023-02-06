@@ -1,27 +1,23 @@
 import PropTypes from 'prop-types';
 import { StatusFriend } from './FriendList.styled';
-import { ItemFriend } from './FriendList.styled';
-import { TextFriend } from './FriendList.styled';
-import { ImgFriend } from './FriendList.styled';
+import { FriendItem } from './FriendList.styled';
+import { FriendText } from './FriendList.styled';
+import { FriendImg } from './FriendList.styled';
+import { FriendListAll } from './FriendList.styled';
 
-export const FriendList = ({ friendList: { avatar, name, isOnline  } }) =>
+export const FriendList = ({friends}) =>
 {
-    return (  
-            <ItemFriend>
-            <StatusFriend value={isOnline}>{isOnline}</StatusFriend>
-            <ImgFriend src={avatar} alt="User avatar" width="48" />
-            <TextFriend>{name}</TextFriend>
-            </ItemFriend>
-       )
+  return (  
+    <FriendListAll>
+      {friends.map(friend => <FriendItem key={friend.id}>
+            <StatusFriend value={friend.isOnline}>{friend.isOnline}</StatusFriend>
+            <FriendImg src={friend.avatar} alt="User avatar" width="48" />
+            <FriendText>{friend.name}</FriendText>
+    </FriendItem>)}
+    </FriendListAll>
+  )
 }
-//export default FriendList;
-
+export default FriendList;
 FriendList.propTypes = {
-    friendList: PropTypes.exact({
-      id: PropTypes.number.isRequired, 
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool.isRequired,
-    
-    }).isRequired,
+      friends:PropTypes.array.isRequired,
 }
