@@ -8,7 +8,7 @@ const Statistics = ({ title, stats}) =>
 {
   return (
     <StatisticsBox>
-      {title === "Upload stats"&&<StatisticsTitle >{title}</StatisticsTitle >}
+      {title&&<StatisticsTitle >{title}</StatisticsTitle >}
         <StatisticsList>
           {stats.map(item=>   <StatisticsSingl key={item.id} value={item.label}>
             <span className="label">{item.label}</span>
